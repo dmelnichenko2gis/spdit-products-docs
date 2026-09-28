@@ -1,7 +1,7 @@
 # Сравнение продуктов
 
 <div class="spdit-product-header" markdown="1">
-![2ГИС](../assets/2gis-logo.png){ .spdit-product-logo }
+![2ГИС](assets/2gis-logo.png){ .spdit-product-logo }
 
 <div markdown="1">
 
