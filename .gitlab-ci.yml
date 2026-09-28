@@ -1,0 +1,46 @@
+image: python:3.12-slim
+
+stages:
+  - deploy
+
+cache:
+  key: pip-cache
+  paths:
+    - .cache/pip
+
+pages:
+  stage: deploy
+  tags:
+    - 2gis
+    - docker
+    - docker-exec
+    - io
+
+  variables:
+    PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+    PIP_DISABLE_PIP_VERSION_CHECK: "1"
+    PIP_DEFAULT_TIMEOUT: "120"
+    PIP_RETRIES: "10"
+    PIP_TRUSTED_HOST: "pypi.org files.pythonhosted.org pypi.python.org"
+
+  script:
+    - python --version
+    - python -m pip install --upgrade pip --timeout 120 --retries 10 --trusted-host pypi.org --trusted-host files.pythonhosted.org --trusted-host pypi.python.org
+    - python -m pip install -r requirements.txt --timeout 120 --retries 10 --trusted-host pypi.org --trusted-host files.pythonhosted.org --trusted-host pypi.python.org
+
+    # Проверка версий
+    - python -m pip show mkdocs
+    - python -m pip show mkdocs-material
+    - python -m pip show pymdown-extensions
+    - python -m pip show markdown
+    - python -m mkdocs --version
+
+    # Сборка сайта
+    - python -m mkdocs build --site-dir public --verbose
+
+  artifacts:
+    paths:
+      - public
+
+  rules:
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'

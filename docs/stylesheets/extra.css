@@ -1,0 +1,3141 @@
+/* =========================================================
+   Переменные
+   ========================================================= */
+
+   :root {
+    --spdit-green: #00a81f;
+    --spdit-green-dark: #007a1a;
+    --spdit-light-green: #7bdc00;
+  
+    --spdit-blue: #0077ff;
+    --spdit-blue-dark: #005fcc;
+  
+    --spdit-yellow: #ffb800;
+    --spdit-yellow-dark: #d99a00;
+  
+    --spdit-dark: #1f2937;
+    --spdit-muted: #6b7280;
+    --spdit-border: #e5e7eb;
+    --spdit-bg: #ffffff;
+    --spdit-bg-soft: #f8fafc;
+  }
+  
+  /* Цвета верхней панели MkDocs Material */
+  [data-md-color-scheme="default"] {
+    --md-primary-fg-color: #00a81f;
+    --md-primary-fg-color--light: #7bdc00;
+    --md-primary-fg-color--dark: #007a1a;
+    --md-accent-fg-color: #0077ff;
+  }
+  
+  /* =========================================================
+     Базовая защита
+     ========================================================= */
+  
+  .md-typeset,
+  .md-content__inner {
+    columns: initial !important;
+    column-count: initial !important;
+    column-width: initial !important;
+  }
+  
+  .md-typeset *,
+  .md-typeset *::before,
+  .md-typeset *::after {
+    box-sizing: border-box;
+  }
+  
+  /* =========================================================
+     Верхний блок продукта
+     ========================================================= */
+  
+  .md-typeset .spdit-product-header {
+    display: grid !important;
+    grid-template-columns: 72px minmax(0, 1fr);
+    gap: 20px;
+    align-items: center;
+    width: 100%;
+    margin: 4px 0 24px;
+    padding: 22px 24px;
+    border: 1px solid var(--spdit-border);
+    border-radius: 22px;
+    background:
+      linear-gradient(135deg, rgba(0, 168, 31, 0.08), rgba(0, 119, 255, 0.06)),
+      var(--spdit-bg);
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+  }
+  
+  .md-typeset .spdit-product-header-content {
+    min-width: 0;
+  }
+  
+  .md-typeset .spdit-product-logo {
+    display: block;
+    width: 72px;
+    height: 72px;
+    max-width: 72px;
+    object-fit: contain;
+    border-radius: 18px;
+    transition:
+      transform 0.18s ease,
+      box-shadow 0.18s ease;
+  }
+  
+  .md-typeset .spdit-product-logo:hover {
+    transform: scale(1.04) rotate(-1deg);
+  }
+  
+  .md-typeset .spdit-product-header h1,
+  .md-typeset .spdit-product-header h2 {
+    margin: 0 0 6px !important;
+    font-size: 34px !important;
+    font-weight: 760 !important;
+    color: var(--spdit-dark);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+  
+  .md-typeset .spdit-product-header p {
+    margin: 0 0 10px;
+    color: var(--spdit-muted);
+    font-size: 16px;
+    line-height: 1.45;
+  }
+  
+  /* =========================================================
+     Теги
+     ========================================================= */
+  
+  .md-typeset .spdit-tag {
+    display: inline-block;
+    margin-right: 6px;
+    margin-top: 4px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.2;
+    transition:
+      transform 0.16s ease,
+      background-color 0.16s ease;
+  }
+  
+  .md-typeset .spdit-tag:hover {
+    transform: translateY(-1px);
+  }
+  
+  .md-typeset .spdit-tag-green {
+    background: rgba(0, 168, 31, 0.12);
+    color: var(--spdit-green-dark);
+  }
+  
+  .md-typeset .spdit-tag-blue {
+    background: rgba(0, 119, 255, 0.12);
+    color: var(--spdit-blue-dark);
+  }
+  
+  .md-typeset .spdit-tag-yellow {
+    background: rgba(255, 184, 0, 0.22);
+    color: #7a5600;
+  }
+  
+  /* =========================================================
+     Summary-блоки под шапкой
+     ========================================================= */
+  
+  .md-typeset .spdit-summary-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    width: 100%;
+    margin: 0 0 28px;
+  }
+  
+  .md-typeset .spdit-summary-item {
+    min-width: 0;
+    padding: 16px 18px;
+    border-radius: 18px;
+    border: 1px solid var(--spdit-border);
+    background: var(--spdit-bg-soft);
+    color: var(--spdit-muted);
+    font-size: 14px;
+    line-height: 1.45;
+  }
+  
+  .md-typeset .spdit-summary-item strong {
+    color: var(--spdit-dark);
+  }
+  
+  .md-typeset .spdit-summary-item p {
+    margin: 0;
+  }
+  
+  /* =========================================================
+     Заголовки
+     ========================================================= */
+  
+  .md-typeset h2 {
+    margin-top: 28px;
+    margin-bottom: 14px;
+    font-weight: 720;
+  }
+  
+  /* =========================================================
+     Карточки Material
+     ========================================================= */
+  
+  .md-typeset .grid.cards > ul > li {
+    border-radius: 18px;
+    transition:
+      transform 0.18s ease,
+      box-shadow 0.18s ease,
+      border-color 0.18s ease,
+      background-color 0.18s ease;
+  }
+  
+  .md-typeset .grid.cards > ul > li:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
+  }
+  
+  .md-typeset .spdit-product-cards > ul > li:nth-child(1) {
+    border-top: 5px solid var(--spdit-green);
+  }
+  
+  .md-typeset .spdit-product-cards > ul > li:nth-child(2) {
+    border-top: 5px solid var(--spdit-blue);
+  }
+  
+  .md-typeset .spdit-product-cards > ul > li:nth-child(3) {
+    border-top: 5px solid var(--spdit-yellow);
+  }
+  
+  .md-typeset .spdit-reference-cards > ul > li:nth-child(1) {
+    border-top: 5px solid var(--spdit-blue);
+  }
+  
+  .md-typeset .spdit-reference-cards > ul > li:nth-child(2) {
+    border-top: 5px solid var(--spdit-green);
+  }
+  
+  .md-typeset .spdit-product-cards img {
+    width: 100%;
+    max-height: 170px;
+    object-fit: cover;
+    border-radius: 14px;
+    margin: 8px 0 12px;
+    border: 1px solid var(--spdit-border);
+  }
+  
+  .md-typeset .spdit-product-cards > ul > li {
+    overflow: hidden;
+  }
+  
+  /* =========================================================
+     Бейджи
+     ========================================================= */
+  
+  .md-typeset .spdit-badge {
+    display: inline-block;
+    margin: 2px 0 8px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  
+  .md-typeset .spdit-badge-green {
+    background: rgba(0, 168, 31, 0.12);
+    color: var(--spdit-green-dark);
+  }
+  
+  .md-typeset .spdit-badge-blue {
+    background: rgba(0, 119, 255, 0.12);
+    color: var(--spdit-blue-dark);
+  }
+  
+  .md-typeset .spdit-badge-yellow {
+    background: rgba(255, 184, 0, 0.22);
+    color: #7a5600;
+  }
+  
+  /* STD / EXT */
+  
+  .md-typeset .attr-badge {
+    display: inline-block;
+    margin-left: 0.25rem;
+    padding: 0.05rem 0.4rem;
+    border-radius: 0.22rem;
+    font-family: var(--md-code-font-family, monospace);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+  
+  .md-typeset .attr-badge.std {
+    background: rgba(0, 168, 31, 0.14);
+    color: var(--spdit-green-dark);
+  }
+  
+  .md-typeset .attr-badge.ext {
+    background: rgba(0, 119, 255, 0.14);
+    color: var(--spdit-blue-dark);
+  }
+  
+  /* Типы данных */
+  
+  .md-typeset .type-badge {
+    display: inline-block;
+    padding: 0.08rem 0.4rem;
+    border-radius: 0.22rem;
+    font-family: var(--md-code-font-family, monospace);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+  
+  .md-typeset .type-badge.str {
+    background: #e8f5e9;
+    color: #2e7d32;
+  }
+  
+  .md-typeset .type-badge.num {
+    background: #e3f2fd;
+    color: #1565c0;
+  }
+  
+  .md-typeset .type-badge.geom {
+    background: #f3e5f5;
+    color: #6a1b9a;
+  }
+  
+  .md-typeset .type-badge.date {
+    background: #fff8e1;
+    color: #f57f17;
+  }
+  
+  /* =========================================================
+     Кнопки в карточках
+     ========================================================= */
+  
+  .md-typeset .spdit-product-cards > ul > li > p:last-child a,
+  .md-typeset .spdit-reference-cards > ul > li > p:last-child a {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 8px 13px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none !important;
+    background: var(--spdit-green);
+    color: #ffffff !important;
+    transition:
+      transform 0.16s ease,
+      box-shadow 0.16s ease,
+      background-color 0.16s ease;
+  }
+  
+  .md-typeset .spdit-product-cards > ul > li > p:last-child a:hover,
+  .md-typeset .spdit-reference-cards > ul > li > p:last-child a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.14);
+  }
+  
+  .md-typeset .spdit-product-cards > ul > li:nth-child(2) > p:last-child a,
+  .md-typeset .spdit-reference-cards > ul > li:nth-child(1) > p:last-child a {
+    background: var(--spdit-blue);
+  }
+  
+  .md-typeset .spdit-product-cards > ul > li:nth-child(3) > p:last-child a {
+    background: var(--spdit-yellow);
+    color: var(--spdit-dark) !important;
+  }
+  
+  /* =========================================================
+     Схема единой структуры
+     ========================================================= */
+  
+  .md-typeset .spdit-flow {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 14px;
+  }
+  
+  .md-typeset .spdit-flow-step {
+    padding: 16px 18px;
+    border-radius: 18px;
+    background: var(--spdit-bg-soft);
+    border: 1px solid var(--spdit-border);
+    position: relative;
+    transition:
+      transform 0.16s ease,
+      box-shadow 0.16s ease,
+      background-color 0.16s ease;
+  }
+  
+  .md-typeset .spdit-flow-step:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px rgba(15, 23, 42, 0.10);
+    background: #ffffff;
+  }
+  
+  .md-typeset .spdit-flow-step::before {
+    content: "";
+    display: block;
+    width: 36px;
+    height: 4px;
+    border-radius: 999px;
+    background: var(--spdit-green);
+    margin-bottom: 12px;
+    transition: width 0.18s ease;
+  }
+  
+  .md-typeset .spdit-flow-step:hover::before {
+    width: 56px;
+  }
+  
+  .md-typeset .spdit-flow-step:nth-child(2)::before {
+    background: var(--spdit-blue);
+  }
+  
+  .md-typeset .spdit-flow-step:nth-child(3)::before {
+    background: var(--spdit-yellow);
+  }
+  
+  .md-typeset .spdit-flow-step:nth-child(4)::before {
+    background: var(--spdit-light-green);
+  }
+  
+  .md-typeset .spdit-flow-step strong {
+    display: block;
+    color: var(--spdit-dark);
+    margin-bottom: 6px;
+    font-size: 15px;
+  }
+  
+  .md-typeset .spdit-flow-step span {
+    display: block;
+    color: var(--spdit-muted);
+    font-size: 13px;
+    line-height: 1.45;
+  }
+  
+  /* =========================================================
+     Анимации
+     ========================================================= */
+  
+  @keyframes spdit-fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .md-typeset .spdit-product-header,
+  .md-typeset .spdit-summary-grid,
+  .md-typeset .spdit-product-cards,
+  .md-typeset .spdit-reference-cards,
+  .md-typeset .spdit-flow {
+    animation: spdit-fade-up 0.45s ease both;
+  }
+  
+  .md-typeset .spdit-product-header {
+    animation-delay: 0.02s;
+  }
+  
+  .md-typeset .spdit-summary-grid {
+    animation-delay: 0.08s;
+  }
+  
+  .md-typeset .spdit-product-cards {
+    animation-delay: 0.14s;
+  }
+  
+  .md-typeset .spdit-reference-cards {
+    animation-delay: 0.20s;
+  }
+  
+  .md-typeset .spdit-flow {
+    animation-delay: 0.26s;
+  }
+  
+  /* =========================================================
+     Details базовые
+     ========================================================= */
+  
+  .md-typeset details {
+    border-radius: 14px;
+  }
+  
+  .md-typeset details summary {
+    font-weight: 700;
+  }
+  
+  /* =========================================================
+     Обычные таблицы Markdown
+     ========================================================= */
+  
+  .md-typeset table:not([class]) {
+    font-size: 14px;
+  }
+  
+  .md-typeset table:not([class]) th,
+  .md-typeset table:not([class]) td {
+    padding: 8px 10px;
+    vertical-align: top;
+  }
+  
+  /* =========================================================
+     Боковой блок сценариев
+     ========================================================= */
+  
+  .md-typeset .spdit-with-aside {
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+    margin: 1.5rem 0;
+  }
+  
+  .md-typeset .spdit-aside {
+    position: sticky;
+    top: 5.5rem;
+    max-height: calc(100vh - 7rem);
+    overflow-y: auto;
+    padding: 1rem 1.25rem;
+    background: var(--md-code-bg-color);
+    border-left: 3px solid var(--md-primary-fg-color);
+    border-radius: 0.4rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+  
+  .md-typeset .spdit-aside-title {
+    margin: 0 0 0.75rem 0;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--md-primary-fg-color);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  
+  .md-typeset .spdit-aside-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .md-typeset .spdit-aside-list li {
+    margin: 0.1rem 0;
+    border-radius: 0.3rem;
+  }
+  
+  .md-typeset .spdit-aside-list li:hover {
+    background: var(--md-default-fg-color--lightest);
+  }
+  
+  .md-typeset .spdit-aside-list a {
+    display: block;
+    padding: 0.45rem 0.6rem;
+    color: var(--md-default-fg-color);
+    text-decoration: none;
+    border-radius: 0.3rem;
+  }
+  
+  .md-typeset .spdit-aside-list a:hover {
+    color: var(--md-primary-fg-color);
+  }
+  
+  .md-typeset .spdit-aside-list button {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem 0.6rem;
+    background: transparent;
+    border: none;
+    border-radius: 0.3rem;
+    font: inherit;
+    text-align: left;
+    color: var(--md-default-fg-color);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+  
+  .md-typeset .spdit-aside-list button:hover {
+    background: var(--md-default-fg-color--lightest);
+    color: var(--md-primary-fg-color);
+  }
+  
+  .md-typeset .spdit-aside-list button.is-active {
+    background: var(--md-primary-fg-color);
+    color: #fff;
+    font-weight: 600;
+  }
+  
+  .md-typeset .spdit-aside-list .emoji {
+    display: inline-block;
+    width: 1.5rem;
+    text-align: center;
+    margin-right: 0.4rem;
+  }
+  
+  .md-typeset .spdit-aside-footer {
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--md-default-fg-color--lightest);
+    font-size: 0.8rem;
+  }
+  
+  .md-typeset .spdit-aside-footer a {
+    color: var(--md-primary-fg-color);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .md-typeset .spdit-aside::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .md-typeset .spdit-aside::-webkit-scrollbar-thumb {
+    background: var(--md-default-fg-color--lighter);
+    border-radius: 3px;
+  }
+  
+  /* =========================================================
+     Usecase panel
+     ========================================================= */
+  
+  .md-typeset .spdit-usecase-panel {
+    background: var(--md-default-bg-color);
+    border: 1px solid var(--md-default-fg-color--lightest);
+    border-radius: 0.5rem;
+    padding: 1.25rem 1.5rem;
+  }
+  
+  .md-typeset .spdit-usecase {
+    display: none;
+    animation: fadeIn 0.25s ease;
+  }
+  
+  .md-typeset .spdit-usecase.is-active {
+    display: block;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .md-typeset .spdit-usecase-head {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .md-typeset .spdit-usecase-head .emoji {
+    font-size: 1.6rem;
+  }
+  
+  .md-typeset .spdit-usecase-head h3 {
+    margin: 0;
+    font-size: 1.15rem;
+    color: var(--md-primary-fg-color);
+  }
+  
+  .md-typeset .spdit-usecase img {
+    display: block;
+    width: 100%;
+    max-width: 480px;
+    border-radius: 0.4rem;
+    margin: 0.5rem 0 1rem 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  }
+  
+  .md-typeset .spdit-usecase-desc {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    margin-bottom: 0.75rem;
+  }
+  
+  .md-typeset .spdit-usecase-layers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+  }
+  
+  .md-typeset .layer-chip {
+    display: inline-block;
+    padding: 0.2rem 0.55rem;
+    background: var(--md-code-bg-color);
+    border: 1px solid var(--md-default-fg-color--lightest);
+    border-radius: 1rem;
+    font-family: var(--md-code-font-family, monospace);
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  
+  .md-typeset .layer-chip:hover {
+    background: var(--md-primary-fg-color);
+    color: #fff;
+  }
+  
+  .md-typeset .spdit-usecase-tasks {
+    margin-top: 0.75rem;
+    padding-top: 0.5rem;
+    border-top: 1px dashed var(--md-default-fg-color--lightest);
+  }
+  
+  .md-typeset .spdit-usecase-tasks h4 {
+    margin: 0 0 0.4rem 0;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: var(--md-default-fg-color--light);
+  }
+  
+  .md-typeset .spdit-usecase-tasks ul {
+    margin: 0;
+    padding-left: 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  /* =========================================================
+     Тизер сценариев
+     ========================================================= */
+  
+  .md-typeset .spdit-usecases-teaser {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+    background: linear-gradient(
+      90deg,
+      var(--md-primary-fg-color--light, #c8e6c9) 0%,
+      transparent 100%
+    );
+    border-left: 4px solid var(--md-primary-fg-color);
+    border-radius: 0.4rem;
+  }
+  
+  .md-typeset .spdit-usecases-teaser .icon {
+    font-size: 2rem;
+  }
+  
+  .md-typeset .spdit-usecases-teaser .content {
+    flex: 1;
+  }
+  
+  .md-typeset .spdit-usecases-teaser h3 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1rem;
+    color: var(--md-primary-fg-color);
+  }
+  
+  .md-typeset .spdit-usecases-teaser p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--md-default-fg-color);
+  }
+  
+  /* =========================================================
+     Поиск и фильтр по слоям
+     ========================================================= */
+  
+  .md-typeset .spdit-layers-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: var(--md-code-bg-color);
+    border-radius: 0.4rem;
+    margin: 1rem 0;
+  }
+  
+  .md-typeset .spdit-layers-search {
+    flex: 1;
+    min-width: 220px;
+    padding: 0.45rem 0.75rem;
+    border: 1px solid var(--md-default-fg-color--lightest);
+    border-radius: 0.3rem;
+    background: var(--md-default-bg-color);
+    color: var(--md-default-fg-color);
+    font: inherit;
+  }
+  
+  .md-typeset .spdit-layers-search:focus {
+    outline: none;
+    border-color: var(--md-primary-fg-color);
+  }
+  
+  .md-typeset .spdit-geom-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }
+  
+  .md-typeset .spdit-geom-filter button {
+    padding: 0.3rem 0.7rem;
+    background: var(--md-default-bg-color);
+    border: 1px solid var(--md-default-fg-color--lightest);
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+    color: var(--md-default-fg-color);
+    transition: all 0.15s;
+  }
+  
+  .md-typeset .spdit-geom-filter button:hover {
+    border-color: var(--md-primary-fg-color);
+  }
+  
+  .md-typeset .spdit-geom-filter button.is-active {
+    background: var(--md-primary-fg-color);
+    color: #fff;
+    border-color: var(--md-primary-fg-color);
+  }
+  
+  .md-typeset .spdit-layers-counter {
+    font-size: 0.8rem;
+    color: var(--md-default-fg-color--light);
+    margin-left: auto;
+  }
+  
+  .md-typeset .spdit-no-results {
+    display: none;
+    padding: 1rem;
+    text-align: center;
+    color: var(--md-default-fg-color--light);
+    font-style: italic;
+  }
+  
+  .md-typeset .spdit-no-results.is-visible {
+    display: block;
+  }
+  
+  /* =========================================================
+     Карточки слоёв
+     ========================================================= */
+  
+  .md-typeset .layer-card {
+    margin: 0.5rem 0;
+  }
+  
+  .md-typeset .layer-card.is-hidden {
+    display: none;
+  }
+  
+  .md-typeset .layer-card > summary {
+    cursor: pointer;
+    padding: 0.3rem 0;
+  }
+  
+  .md-typeset .layer-card[data-geom] > summary::before {
+    content: attr(data-geom-label);
+    display: inline-block;
+    padding: 0.1rem 0.5rem;
+    margin-right: 0.6rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 0.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    vertical-align: middle;
+  }
+  
+  .md-typeset .layer-card[data-geom="point"] > summary::before {
+    background: #fff3e0;
+    color: #e65100;
+  }
+  
+  .md-typeset .layer-card[data-geom="polyline"] > summary::before {
+    background: #e3f2fd;
+    color: #1565c0;
+  }
+  
+  .md-typeset .layer-card[data-geom="polygon"] > summary::before {
+    background: #e8f5e9;
+    color: #2e7d32;
+  }
+  
+  /* =========================================================
+     Layer block / details с атрибутами
+     ========================================================= */
+  
+  .md-typeset details.layer-block {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0.6rem 0;
+    border: 1px solid var(--md-default-fg-color--lightest);
+    border-radius: 0.4rem;
+    overflow: hidden;
+    background: var(--md-default-bg-color);
+    font-size: 0.85rem;
+  }
+  
+  .md-typeset details.layer-block > summary {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 0.85rem;
+    background: var(--md-code-bg-color);
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+    transition: background 0.15s;
+  }
+  
+  .md-typeset details.layer-block > summary:hover {
+    background: var(--md-default-fg-color--lightest);
+  }
+  
+  .md-typeset details.layer-block > summary::-webkit-details-marker {
+    display: none;
+  }
+  
+  .md-typeset details.layer-block > summary::before {
+    content: "›";
+    display: inline-block;
+    flex: 0 0 auto;
+    font-size: 1.1rem;
+    color: var(--md-primary-fg-color);
+    transition: transform 0.2s;
+  }
+  
+  .md-typeset details.layer-block[open] > summary::before {
+    transform: rotate(90deg);
+  }
+  
+  .md-typeset .layer-name {
+    font-family: var(--md-code-font-family, monospace);
+    color: var(--md-primary-fg-color);
+    font-size: 0.95rem;
+    font-weight: 700;
+  }
+  
+  .md-typeset .layer-desc {
+    font-weight: 400;
+    color: var(--md-default-fg-color--light);
+    font-size: 0.82rem;
+  }
+  
+  /* =========================================================
+     Геометрические бейджи
+     ========================================================= */
+  
+  .md-typeset .geom-badge {
+    display: inline-block;
+    padding: 0.1rem 0.45rem;
+    border-radius: 0.25rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  
+  .md-typeset .geom-badge.point {
+    background: #fff3e0;
+    color: #e65100;
+  }
+  
+  .md-typeset .geom-badge.polyline {
+    background: #e3f2fd;
+    color: #1565c0;
+  }
+  
+  .md-typeset .geom-badge.polygon {
+    background: #e8f5e9;
+    color: #2e7d32;
+  }
+  
+  /* =========================================================
+     Метаданные слоя
+     ========================================================= */
+  
+  .md-typeset .layer-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 0.4rem 0.75rem;
+    padding: 0.5rem 0.85rem;
+    background: var(--md-default-bg-color);
+    border-bottom: 1px solid var(--md-default-fg-color--lightest);
+  }
+  
+  .md-typeset .layer-meta-item .label {
+    display: block;
+    text-transform: uppercase;
+    font-size: 0.62rem;
+    letter-spacing: 0.04em;
+    color: var(--md-default-fg-color--light);
+    margin-bottom: 0.1rem;
+  }
+  
+  .md-typeset .layer-meta-item .value {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--md-default-fg-color);
+  }
+  
+  /* =========================================================
+     Группы полей
+     ========================================================= */
+  
+  .md-typeset .field-group {
+    display: block;
+    width: 100%;
+    margin: 0 !important;
+    padding: 0.4rem 0.85rem 0.25rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--md-default-fg-color--light);
+    background: var(--md-default-bg-color);
+    border-top: 1px solid var(--md-default-fg-color--lightest);
+  }
+  
+  .md-typeset .field-group:first-of-type {
+    border-top: none;
+  }
+  
+  /* =========================================================
+     Таблицы полей
+     ========================================================= */
+  
+  .md-typeset table.layer-fields {
+    display: table !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-size: 0.82rem;
+  }
+  
+  .md-typeset table.layer-fields tbody {
+    display: table-row-group !important;
+  }
+  
+  .md-typeset table.layer-fields tr {
+    display: table-row !important;
+  }
+  
+  .md-typeset table.layer-fields td {
+    display: table-cell !important;
+    padding: 0.4rem 0.85rem;
+    border-top: 1px solid var(--md-default-fg-color--lightest);
+    vertical-align: middle;
+    line-height: 1.45;
+  }
+  
+  .md-typeset table.layer-fields tr:first-child td {
+    border-top: none;
+  }
+  
+  .md-typeset table.layer-fields td:first-child {
+    width: 38%;
+  }
+  
+  .md-typeset .field-name {
+    font-family: var(--md-code-font-family, monospace);
+    font-weight: 600;
+    color: var(--md-primary-fg-color);
+    font-size: 0.83rem;
+    margin-right: 0.3rem;
+  }
+  
+  /* Кликабельные строки */
+  
+  .md-typeset .layer-fields.compact .field-row {
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  
+  .md-typeset .layer-fields.compact .field-row:hover {
+    background: var(--md-code-bg-color);
+  }
+  
+  .md-typeset .layer-fields.compact .field-row.no-details {
+    cursor: default;
+  }
+  
+  .md-typeset .layer-fields.compact .field-row.no-details:hover {
+    background: transparent;
+  }
+  
+  /* Стрелка в строке */
+  
+  .md-typeset .layer-fields.compact .field-row td:first-child {
+    position: relative;
+    padding-left: 1.6rem;
+    white-space: nowrap;
+  }
+  
+  .md-typeset .layer-fields.compact .field-row td:first-child::before {
+    content: "›";
+    position: absolute;
+    left: 0.7rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--md-primary-fg-color);
+    font-size: 0.95rem;
+    font-weight: 700;
+    transition: transform 0.22s ease;
+    line-height: 1;
+  }
+  
+  .md-typeset .layer-fields.compact .field-row.no-details td:first-child::before {
+    content: "·";
+    color: var(--md-default-fg-color--light);
+    font-size: 1.1rem;
+  }
+  
+  .md-typeset .layer-fields.compact .field-row.open td:first-child::before,
+  .md-typeset .layer-fields.compact .field-row.is-open td:first-child::before {
+    transform: translateY(-50%) rotate(90deg);
+  }
+  
+  /* Строки подробностей */
+  
+  .md-typeset table.layer-fields tr.field-details {
+    display: table-row !important;
+    background: #f9fafb;
+  }
+  
+  .md-typeset .layer-fields.compact .field-details > td {
+    padding: 0 !important;
+    border: none !important;
+  }
+  
+  .md-typeset .layer-fields.compact .field-details .field-details-inner {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding: 0 0.85rem 0 2.4rem;
+    background: linear-gradient(
+      to right,
+      rgba(0, 168, 31, 0.04),
+      transparent 80%
+    );
+    border-left: 2px solid var(--md-primary-fg-color);
+    margin-left: 0.85rem;
+    font-size: 0.8rem;
+    line-height: 1.55;
+    color: var(--md-default-fg-color);
+    transition:
+      max-height 0.32s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.22s ease,
+      padding 0.28s ease;
+  }
+  
+  .md-typeset .layer-fields.compact .field-details.open .field-details-inner,
+  .md-typeset .layer-fields.compact .field-details.is-open .field-details-inner {
+    max-height: 400px;
+    opacity: 1;
+    padding: 0.5rem 0.85rem 0.6rem 2.4rem;
+  }
+  
+  .md-typeset .field-details-inner > div {
+    margin: 0.15rem 0;
+  }
+  
+  .md-typeset .field-details-inner b {
+    color: var(--md-default-fg-color--light);
+    font-weight: 600;
+    margin-right: 0.25rem;
+  }
+  
+  .md-typeset .field-details-inner ul {
+    margin: 0.25rem 0 0.25rem 1rem;
+    padding: 0;
+  }
+  
+  .md-typeset .field-details-inner code {
+    font-size: 0.92em;
+    padding: 0.05rem 0.35rem;
+  }
+  
+  /* Вложенный список значений */
+  
+  .md-typeset .field-values {
+    margin-top: 0.3rem;
+    padding: 0.4rem 0.6rem;
+    background: var(--md-code-bg-color);
+    border-left: 2px solid var(--md-primary-fg-color);
+    border-radius: 0.22rem;
+    font-size: 0.78rem;
+  }
+  
+  .md-typeset .field-values summary {
+    cursor: pointer;
+    color: var(--md-primary-fg-color);
+    font-size: 0.72rem;
+    font-weight: 500;
+  }
+  
+  .md-typeset .field-values ul {
+    margin: 0.35rem 0 0 0.9rem;
+    padding: 0;
+  }
+  
+  .md-typeset .field-values li {
+    margin: 0.15rem 0;
+    line-height: 1.4;
+  }
+  
+  .md-typeset .field-note {
+    display: block;
+    margin-top: 0.15rem;
+    font-size: 0.72rem;
+    color: var(--md-default-fg-color--light);
+    font-style: italic;
+  }
+  
+  /* =========================================================
+     Глобальная панель управления слоями
+     ========================================================= */
+  
+  .md-typeset .layer-controls-global {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    width: 100%;
+    margin: 0.5rem 0 1rem;
+  }
+  
+  .md-typeset .expand-all-btn {
+    padding: 0.35rem 0.85rem;
+    background: var(--md-default-bg-color);
+    border: 1px solid var(--md-default-fg-color--lightest);
+    border-radius: 1rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--md-default-fg-color--light);
+    cursor: pointer;
+    transition: all 0.18s ease;
+  }
+  
+  .md-typeset .expand-all-btn:hover {
+    border-color: var(--md-primary-fg-color);
+    color: var(--md-primary-fg-color);
+    transform: translateY(-1px);
+  }
+  
+  .md-typeset .expand-all-btn.is-active {
+    background: var(--md-primary-fg-color);
+    color: #fff;
+    border-color: var(--md-primary-fg-color);
+  }
+  
+  /* =========================================================
+     Сравнение «карточка ↔ таблица»
+     ========================================================= */
+  
+ /* Контейнер сравнения: всегда две колонки */
+.md-typeset .comparison-grid {
+  display: grid !important;
+
+  /* Левая карточка уже, правая шире */
+  grid-template-columns: minmax(220px, 0.58fr) minmax(0, 1.42fr);
+
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 100%;
+  margin: 1.5rem 0 2rem;
+  align-items: start;
+}
+
+/* Общие стили карточек */
+.md-typeset .comparison-card {
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+
+  /* Уменьшаем внутренние отступы, чтобы освободить место */
+  padding: 1rem;
+
+  background: var(--spdit-bg-soft);
+  border: 1px solid var(--spdit-border);
+  border-radius: 18px;
+
+  /* Не даём карточке создавать горизонтальный скролл */
+  overflow: hidden;
+}
+
+/* Заголовки карточек */
+.md-typeset .comparison-card h4 {
+  margin: 0 0 1rem !important;
+  font-size: 0.9rem !important;
+  color: var(--spdit-dark);
+  font-weight: 700;
+}
+
+/* Левая визуальная карточка */
+.md-typeset .comparison-visual {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 168, 31, 0.05),
+    rgba(0, 119, 255, 0.04)
+  );
+}
+
+/* Правая карточка с таблицей */
+.md-typeset .comparison-data {
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* Таблица атрибутов */
+.md-typeset .comparison-data table {
+  display: table !important;
+  width: 100%;
+  max-width: 100%;
+
+  /* Важно: убираем min-width: 560px */
+  min-width: 0 !important;
+
+  table-layout: fixed;
+  font-size: 0.72rem;
+}
+
+/* Ячейки таблицы */
+.md-typeset .comparison-data th,
+.md-typeset .comparison-data td {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: normal;
+
+  padding: 0.4rem 0.45rem;
+  vertical-align: middle;
+}
+
+/* Колонка с номером */
+.md-typeset .comparison-data th:nth-child(1),
+.md-typeset .comparison-data td:nth-child(1) {
+  width: 2.4rem;
+  text-align: center;
+}
+
+/* Колонка с названием атрибута */
+.md-typeset .comparison-data th:nth-child(2),
+.md-typeset .comparison-data td:nth-child(2) {
+  width: 37%;
+}
+
+/* Колонка со значением */
+.md-typeset .comparison-data th:nth-child(3),
+.md-typeset .comparison-data td:nth-child(3) {
+  width: auto;
+}
+
+/* Inline-code внутри таблицы */
+.md-typeset .comparison-data code {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  font-size: 0.72rem;
+  padding: 0.1rem 0.25rem;
+}
+
+/* Если где-то ниже есть media-query, который переводит блок в одну колонку,
+   его нужно удалить или переопределить этим правилом */
+@media (max-width: 1400px) {
+  .md-typeset .comparison-grid {
+    grid-template-columns: minmax(220px, 0.58fr) minmax(0, 1.42fr);
+  }
+}
+  
+  /* =========================================================
+     Mock card
+     ========================================================= */
+  
+  .md-typeset .mock-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 1rem 1.1rem;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+    border: 1px solid var(--spdit-border);
+    margin-bottom: 1rem;
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+  
+  .md-typeset .mock-card-logo {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #ff7043, #ff5722);
+    border-radius: 50%;
+    font-size: 1.6rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .md-typeset .mock-card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--spdit-dark);
+    margin-bottom: 0.2rem;
+  }
+  
+  .md-typeset .mock-card-rubric {
+    font-size: 0.82rem;
+    color: var(--spdit-muted);
+    margin-bottom: 0.4rem;
+  }
+  
+  .md-typeset .mock-card-rating,
+  .md-typeset .mock-card-promo,
+  .md-typeset .mock-card-address,
+  .md-typeset .mock-card-extra {
+    margin-top: 8px;
+  }
+  
+  .md-typeset .mock-info-section {
+    padding: 12px 0;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .md-typeset .mock-info-section:last-child {
+    border-bottom: 0;
+  }
+  
+  .md-typeset .mock-info-title {
+    margin-bottom: 6px;
+  }
+  
+  .md-typeset .metro-icon,
+  .md-typeset .parking-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.2em;
+    height: 1.2em;
+    margin-right: 0.25rem;
+    border-radius: 50%;
+    font-size: 0.75em;
+    font-weight: 800;
+  }
+  
+  .md-typeset .metro-icon {
+    background: #ef4444;
+    color: #fff;
+  }
+  
+  .md-typeset .parking-icon {
+    background: #2563eb;
+    color: #fff;
+  }
+  
+  /* =========================================================
+     Callouts / подсветки
+     ========================================================= */
+  
+  .md-typeset .comparison-callouts {
+    margin-top: 16px;
+    font-size: 0.9rem;
+    line-height: 1.8;
+  }
+  
+  .md-typeset .callout {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    margin-right: 6px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #111827;
+    background: #e5e7eb;
+  }
+  
+  .md-typeset .hl {
+    border-radius: 6px;
+    padding: 1px 4px;
+  }
+  
+  .md-typeset .c1 { background: #dbeafe; }
+  .md-typeset .c2 { background: #dcfce7; }
+  .md-typeset .c3 { background: #fef3c7; }
+  .md-typeset .c4 { background: #fce7f3; }
+  .md-typeset .c5 { background: #ede9fe; }
+  .md-typeset .c6 { background: #cffafe; }
+  .md-typeset .c7 { background: #fee2e2; }
+  .md-typeset .c8 { background: #ecfccb; }
+  .md-typeset .c9 { background: #e0f2fe; }
+  .md-typeset .c10 { background: #fae8ff; }
+  .md-typeset .c11 { background: #ccfbf1; }
+  .md-typeset .c12 { background: #ffedd5; }
+  
+  /* =========================================================
+     Кнопки MkDocs
+     ========================================================= */
+  
+  .md-typeset .md-button {
+    margin: 0.3rem 0.3rem 0.3rem 0;
+  }
+  
+  /* =========================================================
+     Mermaid в тёмной теме
+     ========================================================= */
+  
+  [data-md-color-scheme="slate"] .mermaid svg {
+    filter: brightness(0.95);
+  }
+  
+  /* =========================================================
+     Адаптив
+     ========================================================= */
+  
+  @media screen and (max-width: 1100px) {
+    .md-typeset .spdit-with-aside {
+      grid-template-columns: 1fr;
+    }
+  
+    .md-typeset .spdit-aside {
+      position: static;
+      max-height: none;
+    }
+  }
+  
+  @media screen and (max-width: 1000px) {
+    .md-typeset .spdit-flow {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  
+  @media screen and (max-width: 960px) {
+    .md-typeset .comparison-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .md-typeset table.layer-fields td:first-child {
+      width: 45%;
+    }
+  }
+  
+  @media screen and (max-width: 900px) {
+    .md-typeset .spdit-summary-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media screen and (max-width: 760px) {
+    .md-typeset .spdit-product-header {
+      grid-template-columns: 1fr;
+      text-align: center;
+      padding: 20px;
+    }
+  
+    .md-typeset .spdit-product-logo {
+      margin: 0 auto;
+    }
+  
+    .md-typeset .spdit-product-header h1,
+    .md-typeset .spdit-product-header h2 {
+      font-size: 30px !important;
+    }
+  
+    .md-typeset .spdit-flow {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media screen and (max-width: 640px) {
+    .md-typeset table.layer-fields {
+      table-layout: auto;
+    }
+  
+    .md-typeset table.layer-fields td,
+    .md-typeset table.layer-fields tr,
+    .md-typeset table.layer-fields tbody {
+      display: block !important;
+      width: 100% !important;
+    }
+  
+    .md-typeset table.layer-fields td:first-child {
+      width: 100%;
+    }
+  
+    .md-typeset .layer-fields.compact .field-row td:first-child {
+      white-space: normal;
+    }
+  
+    .md-typeset .layer-fields.compact td:first-child {
+      display: block;
+      width: 100% !important;
+      border-bottom: none;
+    }
+  
+    .md-typeset .layer-fields.compact td:nth-child(2) {
+      display: block;
+      width: 100% !important;
+      padding-top: 0;
+      padding-left: 2.4rem;
+      color: var(--md-default-fg-color--light);
+      font-size: 0.78rem;
+    }
+  
+    .md-typeset .layer-fields.compact .field-details .field-details-inner {
+      margin-left: 0;
+      padding-left: 1rem;
+    }
+  
+    .md-typeset .layer-fields.compact .field-details.open .field-details-inner,
+    .md-typeset .layer-fields.compact .field-details.is-open .field-details-inner {
+      padding-left: 1rem;
+    }
+  }
+  
+  /* =========================================================
+     Уважение настройки "уменьшить движение"
+     ========================================================= */
+  
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation: none !important;
+      transition: none !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* =========================================================
+   SPDIT page layout override
+   Добавить в конец текущего CSS
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   Базовая защита от разъезда сеток
+   --------------------------------------------------------- */
+
+.md-typeset,
+.md-content__inner {
+  columns: initial !important;
+  column-count: initial !important;
+  column-width: initial !important;
+}
+
+.md-typeset *,
+.md-typeset *::before,
+.md-typeset *::after {
+  box-sizing: border-box;
+}
+
+.md-typeset img {
+  max-width: 100%;
+}
+
+/* Убираем слишком большие отступы у первого заголовка */
+.md-typeset h1:first-child {
+  margin-top: 0;
+}
+
+/* Заголовок страницы как на скриншотах */
+.md-typeset h1 {
+  font-weight: 400;
+  color: #777;
+}
+
+.md-typeset h2 {
+  margin-top: 2.4rem;
+  margin-bottom: 0.9rem;
+  font-weight: 750;
+  color: var(--spdit-dark);
+}
+
+.md-typeset h3 {
+  margin-top: 1.8rem;
+  font-weight: 720;
+  color: var(--spdit-dark);
+}
+
+/* ---------------------------------------------------------
+   Hero-блок
+   Поддерживает и новый .spdit-hero, и старый .spdit-product-header
+   --------------------------------------------------------- */
+
+.md-typeset .spdit-hero,
+.md-typeset .spdit-product-header {
+  display: flex !important;
+  gap: 24px;
+  align-items: center;
+  width: 100%;
+  margin: 24px 0 22px;
+  padding: 28px 32px;
+  border: 1px solid #d9e3ea;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 0 0, rgba(0, 180, 80, 0.12), transparent 35%),
+    linear-gradient(135deg, #f3fff6 0%, #eef8ff 100%);
+  box-shadow: none;
+  overflow: hidden;
+}
+
+.md-typeset .spdit-hero-logo,
+.md-typeset .spdit-product-logo {
+  flex: 0 0 auto;
+}
+
+.md-typeset .spdit-hero-logo {
+  width: 78px;
+  height: 78px;
+  display: grid;
+  place-items: center;
+}
+
+.md-typeset .spdit-hero-logo img,
+.md-typeset .spdit-product-logo {
+  display: block;
+  width: 68px;
+  height: 68px;
+  max-width: 68px;
+  object-fit: contain;
+  border-radius: 16px;
+}
+
+.md-typeset .spdit-product-logo {
+  width: 72px;
+  height: 72px;
+  max-width: 72px;
+}
+
+.md-typeset .spdit-hero-content,
+.md-typeset .spdit-product-header-content {
+  min-width: 0;
+}
+
+.md-typeset .spdit-hero-content h2,
+.md-typeset .spdit-product-header h2,
+.md-typeset .spdit-product-header h1 {
+  margin: 0 0 8px !important;
+  font-size: 1.75rem !important;
+  line-height: 1.2;
+  font-weight: 800 !important;
+  letter-spacing: -0.02em;
+  color: #253142;
+}
+
+.md-typeset .spdit-hero-content p,
+.md-typeset .spdit-product-header p {
+  margin: 0;
+  max-width: 760px;
+  color: #5d6878;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.md-typeset .spdit-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+/* ---------------------------------------------------------
+   Теги
+   --------------------------------------------------------- */
+
+.md-typeset .spdit-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 4px 6px 0 0;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  line-height: 1.2;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.md-typeset .spdit-tag-yellow {
+  background: #ffe28a;
+  color: #5c4700;
+}
+
+.md-typeset .spdit-tag-blue {
+  background: #dcecff;
+  color: #075ca8;
+}
+
+.md-typeset .spdit-tag-green {
+  background: #d8f6df;
+  color: #08722b;
+}
+
+/* ---------------------------------------------------------
+   Summary / stat cards
+   Поддерживает .spdit-stat-grid и .spdit-summary-grid
+   --------------------------------------------------------- */
+
+.md-typeset .spdit-stat-grid,
+.md-typeset .spdit-summary-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  width: 100%;
+  margin: 18px 0 24px;
+}
+
+.md-typeset .spdit-stat-card,
+.md-typeset .spdit-summary-item {
+  min-width: 0;
+  min-height: 78px;
+  padding: 16px 18px;
+  border: 1px solid #dfe6ed;
+  border-radius: 14px;
+  background: #f8fafc;
+  color: #667386;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.md-typeset .spdit-stat-card strong,
+.md-typeset .spdit-summary-item strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.98rem;
+  color: #253142;
+}
+
+.md-typeset .spdit-stat-card span {
+  display: block;
+  color: #667386;
+}
+
+/* ---------------------------------------------------------
+   Информационные блоки
+   --------------------------------------------------------- */
+
+.md-typeset .spdit-info-box,
+.md-typeset .spdit-accent-box,
+.md-typeset .spdit-note,
+.md-typeset .spdit-legend-box {
+  width: 100%;
+  margin: 22px 0;
+  padding: 18px 20px;
+  border-radius: 8px;
+}
+
+.md-typeset .spdit-info-box {
+  border: 1px solid #00bcd4;
+  background: #f3fdff;
+}
+
+.md-typeset .spdit-info-title,
+.md-typeset .spdit-accent-title {
+  margin-bottom: 10px;
+  font-weight: 800;
+  color: #253142;
+}
+
+.md-typeset .spdit-info-box p,
+.md-typeset .spdit-accent-box p {
+  margin-bottom: 0;
+}
+
+.md-typeset .spdit-accent-box {
+  border: 1px solid #00bfa5;
+  background: #f4fffc;
+}
+
+.md-typeset .spdit-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12px;
+  padding: 10px 18px;
+  border-radius: 3px;
+  background: #00a82d;
+  color: #ffffff !important;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-decoration: none !important;
+}
+
+.md-typeset .spdit-button:hover {
+  background: #008e26;
+}
+
+.md-typeset .spdit-note {
+  border: 1px solid #e1e7ee;
+  background: #fbfcfe;
+}
+
+.md-typeset .spdit-note strong {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.md-typeset .spdit-note ul {
+  margin-top: 0.4rem;
+  margin-bottom: 0;
+}
+
+/* ---------------------------------------------------------
+   Блок сравнения карточки и базы данных
+   Новый .spdit-compare-grid + старый .comparison-grid
+   --------------------------------------------------------- */
+
+.md-typeset .spdit-compare-grid,
+.md-typeset .comparison-grid {
+  display: grid !important;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: 28px;
+  align-items: stretch;
+  width: 100%;
+  margin: 28px 0 26px;
+}
+
+.md-typeset .spdit-compare-grid > *,
+.md-typeset .comparison-grid > * {
+  min-width: 0;
+}
+
+/* Панели сравнения */
+.md-typeset .spdit-panel,
+.md-typeset .comparison-card {
+  min-width: 0;
+  width: 100%;
+  padding: 26px;
+  border: 1px solid #dfe6ed;
+  border-radius: 14px;
+  background: #f8fafc;
+  overflow: hidden;
+}
+
+.md-typeset .spdit-panel-soft,
+.md-typeset .comparison-visual {
+  background:
+    radial-gradient(circle at 0 0, rgba(38, 197, 117, 0.11), transparent 42%),
+    linear-gradient(180deg, #f8fffb 0%, #f6fbff 100%);
+}
+
+.md-typeset .spdit-panel-title {
+  margin-bottom: 24px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #263241;
+}
+
+.md-typeset .comparison-card h4,
+.md-typeset .comparison-card h3,
+.md-typeset .comparison-card h2 {
+  margin: 0 0 1rem !important;
+  font-size: 1.05rem !important;
+  color: #263241;
+  font-weight: 800;
+}
+
+/* ---------------------------------------------------------
+   Имитация карточки приложения
+   Новый .spdit-phone-card + старый .mock-card
+   --------------------------------------------------------- */
+
+.md-typeset .spdit-phone-card,
+.md-typeset .mock-card {
+  width: 270px;
+  max-width: 100%;
+  margin: 0 auto 22px;
+  padding: 22px 22px 20px;
+  border: 1px solid #d8e1ea;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 12px 28px rgba(20, 40, 70, 0.12);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.md-typeset .spdit-card-logo,
+.md-typeset .mock-card-logo {
+  width: 44px;
+  height: 44px;
+  margin-bottom: 12px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #ff6b39, #ff3f7b);
+  font-size: 1.4rem;
+}
+
+.md-typeset .spdit-card-name,
+.md-typeset .mock-card-title {
+  margin-bottom: 7px;
+  font-size: 1.08rem;
+  font-weight: 800;
+  color: #243141;
+}
+
+.md-typeset .spdit-card-line,
+.md-typeset .mock-card-rubric,
+.md-typeset .mock-card-rating,
+.md-typeset .mock-card-promo,
+.md-typeset .mock-card-address,
+.md-typeset .mock-card-extra {
+  margin: 5px 0;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.md-typeset .muted {
+  color: #8b96a6;
+}
+
+/* Подсветки в карточке */
+.md-typeset .hl {
+  padding: 1px 4px;
+  border-radius: 4px;
+}
+
+.md-typeset .hl-blue,
+.md-typeset .c1 {
+  background: #d9ebff;
+}
+
+.md-typeset .hl-green,
+.md-typeset .c2 {
+  background: #dff7e6;
+}
+
+.md-typeset .hl-yellow,
+.md-typeset .c3 {
+  background: #fff1b9;
+}
+
+.md-typeset .hl-pink,
+.md-typeset .c4 {
+  background: #ffe2ef;
+}
+
+.md-typeset .hl-purple,
+.md-typeset .c5 {
+  background: #eee5ff;
+}
+
+.md-typeset .hl-cyan,
+.md-typeset .c6 {
+  background: #dcf8ff;
+}
+
+.md-typeset .c7 {
+  background: #fee2e2;
+}
+
+.md-typeset .c8 {
+  background: #ecfccb;
+}
+
+.md-typeset .c9 {
+  background: #e0f2fe;
+}
+
+.md-typeset .c10 {
+  background: #fae8ff;
+}
+
+.md-typeset .c11 {
+  background: #ccfbf1;
+}
+
+.md-typeset .c12 {
+  background: #ffedd5;
+}
+
+/* ---------------------------------------------------------
+   Нумерация / callouts
+   --------------------------------------------------------- */
+
+.md-typeset .spdit-legend-list,
+.md-typeset .comparison-callouts {
+  width: 270px;
+  max-width: 100%;
+  margin: 0 auto;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.md-typeset .spdit-legend-list div {
+  margin: 9px 0;
+}
+
+.md-typeset .num,
+.md-typeset .callout {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 19px;
+  height: 19px;
+  margin-right: 7px;
+  border-radius: 50%;
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1;
+  color: #111827;
+}
+
+.md-typeset .callout {
+  width: 22px;
+  height: 22px;
+  font-size: 0.75rem;
+}
+
+.md-typeset .n1,
+.md-typeset .callout.c1 {
+  background: #d9ebff;
+  color: #15558b;
+}
+
+.md-typeset .n2,
+.md-typeset .callout.c2 {
+  background: #dff7e6;
+  color: #08722b;
+}
+
+.md-typeset .n3,
+.md-typeset .callout.c3 {
+  background: #fff1b9;
+  color: #7a5a00;
+}
+
+.md-typeset .n4,
+.md-typeset .callout.c4 {
+  background: #ffe2ef;
+  color: #8b2a55;
+}
+
+.md-typeset .n5,
+.md-typeset .callout.c5 {
+  background: #eee5ff;
+  color: #5630a8;
+}
+
+.md-typeset .n6,
+.md-typeset .callout.c6 {
+  background: #dcf8ff;
+  color: #006c80;
+}
+
+/* ---------------------------------------------------------
+   Таблицы данных
+   --------------------------------------------------------- */
+
+.md-typeset .spdit-table-scroll,
+.md-typeset .spdit-section-table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.md-typeset .spdit-data-table,
+.md-typeset .comparison-card table {
+  width: 100%;
+  min-width: 520px;
+  border-collapse: collapse;
+  background: #ffffff;
+  font-size: 0.78rem;
+}
+
+.md-typeset .spdit-data-table.wide {
+  min-width: 760px;
+}
+
+.md-typeset .spdit-data-table.compact {
+  min-width: 0;
+}
+
+.md-typeset .spdit-data-table th,
+.md-typeset .spdit-data-table td,
+.md-typeset .comparison-card table th,
+.md-typeset .comparison-card table td {
+  padding: 10px 12px;
+  border: 1px solid #dfe4ea;
+  vertical-align: top;
+}
+
+.md-typeset .spdit-data-table th,
+.md-typeset .comparison-card table th {
+  background: #f6f8fa;
+  color: #2d3541;
+  font-weight: 800;
+}
+
+.md-typeset .spdit-data-table td,
+.md-typeset .comparison-card table td {
+  color: #303947;
+}
+
+.md-typeset .spdit-data-table code,
+.md-typeset .comparison-card table code {
+  padding: 2px 5px;
+  border-radius: 4px;
+  background: #f1f3f5;
+  color: #4b5665;
+  font-size: 0.72rem;
+}
+
+/* Имитация горизонтального скролла под таблицей */
+.md-typeset .spdit-scroll-hint {
+  height: 18px;
+  margin-top: 16px;
+  position: relative;
+}
+
+.md-typeset .spdit-scroll-hint::before,
+.md-typeset .spdit-scroll-hint::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+}
+
+.md-typeset .spdit-scroll-hint::before {
+  left: 0;
+  border-right: 9px solid #999;
+}
+
+.md-typeset .spdit-scroll-hint::after {
+  right: 0;
+  border-left: 9px solid #999;
+}
+
+.md-typeset .spdit-scroll-hint span {
+  display: block;
+  width: 180px;
+  max-width: 60%;
+  height: 12px;
+  margin: 0 auto;
+  border-radius: 999px;
+  background: #999;
+}
+
+/* ---------------------------------------------------------
+   Основные пользователи
+   --------------------------------------------------------- */
+
+.md-typeset .spdit-users-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 18px 0 28px;
+}
+
+.md-typeset .spdit-user-card {
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid #dfe6ed;
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+.md-typeset .spdit-user-card strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #253142;
+}
+
+.md-typeset .spdit-user-card span {
+  display: block;
+  color: #667386;
+  font-size: 0.82rem;
+}
+
+/* ---------------------------------------------------------
+   Раздел Инфо — две карточки
+   --------------------------------------------------------- */
+
+.md-typeset .spdit-info-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 18px;
+  margin: 22px 0;
+}
+
+.md-typeset .spdit-mini-card {
+  min-width: 0;
+  padding: 22px;
+  border: 1px solid #dfe6ed;
+  border-radius: 14px;
+  background: #f8fafc;
+}
+
+.md-typeset .spdit-mini-card h3 {
+  margin: 0 0 16px;
+  font-size: 1rem;
+}
+
+.md-typeset .spdit-app-list {
+  display: grid;
+  gap: 14px;
+}
+
+.md-typeset .spdit-app-list strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.md-typeset .spdit-app-list span {
+  color: #667386;
+  font-size: 0.85rem;
+}
+
+/* ---------------------------------------------------------
+   Легенда и бейджи STD / EXT / типы
+   --------------------------------------------------------- */
+
+.md-typeset .spdit-legend-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  align-items: center;
+  border: 1px solid #dfe6ed;
+  background: #f8fafc;
+  font-size: 0.84rem;
+}
+
+.md-typeset .attr-badge,
+.md-typeset .type-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 2px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  line-height: 1.2;
+  font-weight: 800;
+  white-space: nowrap;
+  letter-spacing: 0;
+  font-family: inherit;
+}
+
+.md-typeset .attr-badge.std {
+  background: #e0f0ff;
+  color: #075ca8;
+}
+
+.md-typeset .attr-badge.ext {
+  background: #e5f8e9;
+  color: #08722b;
+}
+
+.md-typeset .type-badge.str {
+  background: #f1f3f5;
+  color: #4b5563;
+}
+
+.md-typeset .type-badge.num {
+  background: #fff1b9;
+  color: #7a5a00;
+}
+
+.md-typeset .type-badge.geom {
+  background: #eee5ff;
+  color: #5630a8;
+}
+
+.md-typeset .type-badge.date {
+  background: #ffe2ef;
+  color: #8b2a55;
+}
+
+/* ---------------------------------------------------------
+   Details нового типа .spdit-details
+   --------------------------------------------------------- */
+
+.md-typeset .spdit-details {
+  display: block !important;
+  width: 100%;
+  margin: 18px 0;
+  border: 1px solid #dfe6ed;
+  border-radius: 14px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.md-typeset .spdit-details summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  padding: 16px 20px;
+  cursor: pointer;
+  background: #f8fafc;
+  font-weight: 800;
+  list-style: none;
+}
+
+.md-typeset .spdit-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.md-typeset .spdit-details summary::before {
+  content: "›";
+  display: inline-block;
+  margin-right: 4px;
+  color: var(--spdit-green);
+  font-size: 1.1rem;
+  transition: transform 0.2s ease;
+}
+
+.md-typeset .spdit-details[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.md-typeset .spdit-details summary small {
+  margin-left: auto;
+  color: #667386;
+  font-weight: 600;
+}
+
+.md-typeset .spdit-details .spdit-data-table {
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.md-typeset .spdit-subtitle {
+  padding: 16px 20px 8px;
+  color: #253142;
+  font-weight: 800;
+}
+
+/* ---------------------------------------------------------
+   Совместимость со старыми layer-block
+   Улучшает внешний вид под новый стиль
+   --------------------------------------------------------- */
+
+.md-typeset details.layer-block {
+  border: 1px solid #dfe6ed;
+  border-radius: 14px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.md-typeset details.layer-block > summary {
+  padding: 16px 20px;
+  background: #f8fafc;
+  font-weight: 800;
+}
+
+.md-typeset .layer-name {
+  color: #253142;
+  font-family: inherit;
+  font-weight: 800;
+}
+
+.md-typeset .layer-desc {
+  color: #667386;
+  font-weight: 600;
+}
+
+.md-typeset .field-group {
+  padding: 16px 20px 8px;
+  background: #ffffff;
+  color: #253142;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* Таблицы layer-fields в более спокойном стиле */
+.md-typeset table.layer-fields {
+  width: 100% !important;
+  border-collapse: collapse;
+  background: #ffffff;
+  font-size: 0.82rem;
+}
+
+.md-typeset table.layer-fields td {
+  padding: 10px 12px;
+  border-top: 1px solid #dfe4ea;
+  vertical-align: top;
+}
+
+.md-typeset table.layer-fields td:first-child {
+  width: 40%;
+}
+
+.md-typeset .field-name {
+  color: #253142;
+  font-family: var(--md-code-font-family, monospace);
+  font-weight: 700;
+}
+
+/* ---------------------------------------------------------
+   Mock info icons
+   --------------------------------------------------------- */
+
+.md-typeset .mock-info-section {
+  padding: 12px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.md-typeset .mock-info-section:last-child {
+  border-bottom: 0;
+}
+
+.md-typeset .mock-info-title {
+  margin-bottom: 6px;
+}
+
+.md-typeset .metro-icon,
+.md-typeset .parking-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.2em;
+  height: 1.2em;
+  margin-right: 0.25rem;
+  border-radius: 50%;
+  font-size: 0.75em;
+  font-weight: 800;
+}
+
+.md-typeset .metro-icon {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+.md-typeset .parking-icon {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+/* ---------------------------------------------------------
+   Анимация появления
+   --------------------------------------------------------- */
+
+@keyframes spdit-fade-up-soft {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.md-typeset .spdit-hero,
+.md-typeset .spdit-product-header,
+.md-typeset .spdit-stat-grid,
+.md-typeset .spdit-summary-grid,
+.md-typeset .spdit-info-box,
+.md-typeset .spdit-compare-grid,
+.md-typeset .comparison-grid,
+.md-typeset .spdit-users-grid {
+  animation: spdit-fade-up-soft 0.42s ease both;
+}
+
+/* ---------------------------------------------------------
+   Адаптив
+   --------------------------------------------------------- */
+
+@media screen and (max-width: 1100px) {
+  .md-typeset .spdit-compare-grid,
+  .md-typeset .comparison-grid {
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .md-typeset .spdit-stat-grid,
+  .md-typeset .spdit-summary-grid,
+  .md-typeset .spdit-compare-grid,
+  .md-typeset .comparison-grid,
+  .md-typeset .spdit-users-grid,
+  .md-typeset .spdit-info-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .md-typeset .spdit-panel,
+  .md-typeset .comparison-card {
+    padding: 20px;
+  }
+
+  .md-typeset .spdit-data-table.compact {
+    min-width: 520px;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .md-typeset .spdit-hero,
+  .md-typeset .spdit-product-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 22px;
+  }
+
+  .md-typeset .spdit-product-header {
+    text-align: left;
+  }
+
+  .md-typeset .spdit-product-logo {
+    margin: 0;
+  }
+
+  .md-typeset .spdit-hero-content h2,
+  .md-typeset .spdit-product-header h2,
+  .md-typeset .spdit-product-header h1 {
+    font-size: 1.35rem !important;
+  }
+
+  .md-typeset .spdit-phone-card,
+  .md-typeset .mock-card,
+  .md-typeset .spdit-legend-list,
+  .md-typeset .comparison-callouts {
+    width: 100%;
+  }
+
+  .md-typeset .spdit-details summary {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .md-typeset .spdit-details summary small {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .md-typeset .spdit-data-table,
+  .md-typeset .comparison-card table {
+    min-width: 640px;
+  }
+
+  .md-typeset table.layer-fields {
+    table-layout: auto;
+  }
+
+  .md-typeset table.layer-fields td,
+  .md-typeset table.layer-fields tr,
+  .md-typeset table.layer-fields tbody {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .md-typeset table.layer-fields td:first-child {
+    width: 100% !important;
+    border-bottom: 0;
+  }
+
+  .md-typeset table.layer-fields td:nth-child(2) {
+    padding-top: 0;
+    color: #667386;
+  }
+}
+
+/* ---------------------------------------------------------
+   Тёмная тема Material
+   --------------------------------------------------------- */
+
+[data-md-color-scheme="slate"] .md-typeset .spdit-hero,
+[data-md-color-scheme="slate"] .md-typeset .spdit-product-header {
+  border-color: rgba(255, 255, 255, 0.12);
+  background:
+    radial-gradient(circle at 0 0, rgba(0, 180, 80, 0.18), transparent 35%),
+    linear-gradient(135deg, rgba(0, 168, 31, 0.12), rgba(0, 119, 255, 0.08));
+}
+
+[data-md-color-scheme="slate"] .md-typeset .spdit-panel,
+[data-md-color-scheme="slate"] .md-typeset .comparison-card,
+[data-md-color-scheme="slate"] .md-typeset .spdit-stat-card,
+[data-md-color-scheme="slate"] .md-typeset .spdit-summary-item,
+[data-md-color-scheme="slate"] .md-typeset .spdit-user-card,
+[data-md-color-scheme="slate"] .md-typeset .spdit-mini-card,
+[data-md-color-scheme="slate"] .md-typeset .spdit-note,
+[data-md-color-scheme="slate"] .md-typeset .spdit-legend-box,
+[data-md-color-scheme="slate"] .md-typeset .spdit-details,
+[data-md-color-scheme="slate"] .md-typeset details.layer-block {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: var(--md-default-bg-color);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .spdit-phone-card,
+[data-md-color-scheme="slate"] .md-typeset .mock-card,
+[data-md-color-scheme="slate"] .md-typeset .spdit-data-table,
+[data-md-color-scheme="slate"] .md-typeset .comparison-card table {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: var(--md-default-bg-color);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .spdit-data-table th,
+[data-md-color-scheme="slate"] .md-typeset .comparison-card table th,
+[data-md-color-scheme="slate"] .md-typeset .spdit-details summary,
+[data-md-color-scheme="slate"] .md-typeset details.layer-block > summary {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* ---------------------------------------------------------
+   Уважение настройки "уменьшить движение"
+   --------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .md-typeset .spdit-hero,
+  .md-typeset .spdit-product-header,
+  .md-typeset .spdit-stat-grid,
+  .md-typeset .spdit-summary-grid,
+  .md-typeset .spdit-info-box,
+  .md-typeset .spdit-compare-grid,
+  .md-typeset .comparison-grid,
+  .md-typeset .spdit-users-grid {
+    animation: none !important;
+  }
+}
+
+/* Исправление наложения иконок в кастомных details */
+.md-typeset details.spdit-details > summary::before {
+  display: none !important;
+  content: none !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+
+/* Убираем нативный маркер браузера */
+.md-typeset details.spdit-details > summary::marker {
+  content: "";
+}
+
+.md-typeset details.spdit-details > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Нормальное выравнивание заголовка details */
+.md-typeset details.spdit-details > summary {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  padding: 0.75rem 2.5rem 0.75rem 1rem !important;
+  min-height: 2.5rem;
+
+  cursor: pointer;
+}
+
+/* Основной текст заголовка */
+.md-typeset details.spdit-details > summary > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+
+  min-width: 0;
+  font-weight: 700;
+}
+
+/* Правый счётчик: "9 полей · 5 STD · 4 EXT" */
+.md-typeset details.spdit-details > summary > small {
+  margin-left: auto;
+  white-space: nowrap;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.7rem;
+}
+
+/* ================================
+   Классификация назначений зданий
+   ================================ */
+
+   .md-typeset .building-overview {
+    margin: 1rem 0 1.5rem;
+  }
+  
+  .md-typeset .building-overview table {
+    width: 100%;
+    table-layout: fixed;
+    font-size: 0.82rem;
+  }
+  
+  .md-typeset .building-overview th,
+  .md-typeset .building-overview td {
+    vertical-align: top;
+  }
+  
+  .md-typeset .building-overview th:nth-child(1),
+  .md-typeset .building-overview td:nth-child(1) {
+    width: 36%;
+  }
+  
+  .md-typeset .building-overview th:nth-child(2),
+  .md-typeset .building-overview td:nth-child(2) {
+    width: 9rem;
+    text-align: right;
+    white-space: nowrap;
+  }
+  
+  .md-typeset .building-classification {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    margin: 1rem 0 2rem;
+  }
+  
+  /* Карточка класса */
+  .md-typeset details.building-class-block {
+    margin: 0;
+    padding: 0;
+    border: 1px solid var(--md-default-fg-color--lightest);
+    border-radius: 14px;
+    background: var(--md-default-bg-color);
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(20, 40, 70, 0.04);
+  }
+  
+  /* Заголовок раскрывающегося блока */
+  .md-typeset details.building-class-block > summary {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  
+    min-height: 3rem;
+    padding: 0.8rem 1rem !important;
+  
+    background: linear-gradient(
+      135deg,
+      rgba(25, 118, 210, 0.06),
+      rgba(0, 168, 31, 0.035)
+    );
+  
+    cursor: pointer;
+    list-style: none;
+  }
+  
+  /* Убираем стандартный маркер браузера */
+  .md-typeset details.building-class-block > summary::-webkit-details-marker {
+    display: none;
+  }
+  
+  .md-typeset details.building-class-block > summary::marker {
+    content: "";
+  }
+  
+  /* Если MkDocs Material добавляет свою иконку слева — прячем */
+  .md-typeset details.building-class-block > summary::before {
+    display: none !important;
+    content: none !important;
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+  }
+  
+  /* Название класса */
+  .md-typeset .building-class-title {
+    font-weight: 700;
+    color: var(--md-default-fg-color);
+    font-size: 0.9rem;
+    line-height: 1.25;
+  }
+  
+  /* Счётчик назначений */
+  .md-typeset .building-class-count {
+    margin-left: auto;
+    padding: 0.18rem 0.55rem;
+    border-radius: 999px;
+  
+    background: rgba(25, 118, 210, 0.1);
+    color: #1976d2;
+  
+    font-size: 0.68rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  
+  /* Обёртка таблицы */
+  .md-typeset .building-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    padding: 0.7rem 0.9rem 0.9rem;
+  }
+  
+  /* Таблица внутри классификации */
+  .md-typeset .building-table-wrap table {
+    width: 100%;
+    min-width: 680px;
+    table-layout: fixed;
+    font-size: 0.78rem;
+    margin: 0 !important;
+  }
+  
+  /* Заголовок таблицы */
+  .md-typeset .building-table-wrap table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  
+    background: var(--md-default-bg-color);
+    color: var(--md-default-fg-color);
+    font-weight: 700;
+  }
+  
+  /* Ячейки */
+  .md-typeset .building-table-wrap table th,
+  .md-typeset .building-table-wrap table td {
+    padding: 0.5rem 0.65rem;
+    vertical-align: top;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+  
+  /* Колонка "Назначение" */
+  .md-typeset .building-table-wrap table th:nth-child(1),
+  .md-typeset .building-table-wrap table td:nth-child(1) {
+    width: 32%;
+    font-weight: 600;
+  }
+  
+  /* Колонка "Краткое пояснение" */
+  .md-typeset .building-table-wrap table th:nth-child(2),
+  .md-typeset .building-table-wrap table td:nth-child(2) {
+    width: 68%;
+  }
+  
+  /* Зебра-строки */
+  .md-typeset .building-table-wrap table tbody tr:nth-child(even) {
+    background: rgba(100, 116, 139, 0.045);
+  }
+  
+  /* Hover */
+  .md-typeset .building-table-wrap table tbody tr:hover {
+    background: rgba(25, 118, 210, 0.075);
+  }
+  
+  /* Адаптация */
+  @media (max-width: 900px) {
+    .md-typeset details.building-class-block > summary {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+  
+    .md-typeset .building-class-count {
+      margin-left: 0;
+    }
+  
+    .md-typeset .building-overview table {
+      font-size: 0.76rem;
+    }
+  
+    .md-typeset .building-table-wrap table {
+      font-size: 0.74rem;
+    }
+  }
+
+  .md-typeset details.layer-block > summary::before,
+.md-typeset details.spdit-details > summary::before,
+.md-typeset details.building-class-block > summary::before {
+  display: none !important;
+  content: none !important;
+  background: none !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+
+.md-typeset details.layer-block > summary,
+.md-typeset details.spdit-details > summary,
+.md-typeset details.building-class-block > summary {
+  padding-left: 1rem !important;
+}
+
+/* ================================
+   Иерархия территориального деления
+   ================================ */
+
+   .md-typeset .territory-hierarchy {
+    margin: 1.2rem 0 1.5rem;
+    padding: 1.2rem 1.4rem;
+    border: 1px solid var(--md-default-fg-color--lightest);
+    border-radius: 18px;
+    background: linear-gradient(
+      135deg,
+      rgba(25, 118, 210, 0.055),
+      rgba(0, 168, 31, 0.035)
+    );
+    overflow-x: auto;
+  }
+  
+  /* Само дерево */
+  .md-typeset .territory-tree,
+  .md-typeset .territory-tree ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 1.4rem;
+    position: relative;
+  }
+  
+  /* Первый уровень без лишнего отступа */
+  .md-typeset .territory-tree {
+    padding-left: 0;
+  }
+  
+  /* Вертикальные линии */
+  .md-typeset .territory-tree ul::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0.45rem;
+    width: 1px;
+    height: 100%;
+    background: rgba(100, 116, 139, 0.35);
+  }
+  
+  /* Элемент дерева */
+  .md-typeset .territory-tree li {
+    position: relative;
+    margin: 0.45rem 0;
+    padding-left: 1.2rem;
+  }
+  
+  /* Горизонтальные линии */
+  .md-typeset .territory-tree li::before {
+    content: "";
+    position: absolute;
+    top: 1.05rem;
+    left: 0;
+    width: 1rem;
+    height: 1px;
+    background: rgba(100, 116, 139, 0.35);
+  }
+  
+  /* У первого элемента не рисуем линию слева */
+  .md-typeset .territory-tree > li {
+    padding-left: 0;
+  }
+  
+  .md-typeset .territory-tree > li::before {
+    display: none;
+  }
+  
+  /* Узел дерева */
+  .md-typeset .territory-node {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  
+    padding: 0.38rem 0.7rem;
+    border: 1px solid rgba(25, 118, 210, 0.18);
+    border-radius: 999px;
+  
+    background: var(--md-default-bg-color);
+    color: var(--md-default-fg-color);
+  
+    font-size: 0.82rem;
+    font-weight: 600;
+    line-height: 1.25;
+  
+    box-shadow: 0 3px 10px rgba(20, 40, 70, 0.05);
+  }
+  
+  /* Иконка перед обычным узлом */
+  .md-typeset .territory-node::before {
+    content: "•";
+    color: #1976d2;
+    font-size: 1rem;
+    line-height: 1;
+  }
+  
+  /* Корневой узел */
+  .md-typeset .territory-node-root {
+    background: #1976d2;
+    border-color: #1976d2;
+    color: #fff;
+  }
+  
+  .md-typeset .territory-node-root::before {
+    content: "◎";
+    color: #fff;
+  }
+  
+  /* Неофициальный / дополнительный уровень */
+  .md-typeset .territory-node-extra {
+    background: rgba(255, 193, 7, 0.12);
+    border-color: rgba(255, 193, 7, 0.45);
+  }
+  
+  .md-typeset .territory-node-extra::before {
+    content: "◇";
+    color: #f57c00;
+  }
+  
+  /* Карточки с пояснениями */
+  .md-typeset .territory-notes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.8rem;
+    margin: 1rem 0 2rem;
+  }
+  
+  .md-typeset .territory-note {
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--md-default-fg-color--lightest);
+    border-radius: 14px;
+    background: var(--md-default-bg-color);
+    box-shadow: 0 3px 12px rgba(20, 40, 70, 0.04);
+    font-size: 0.8rem;
+  }
+  
+  .md-typeset .territory-note strong {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: var(--md-default-fg-color);
+  }
+  
+  .project-boundaries {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+  }
+  
+  .project-boundaries img {
+    max-width: 50%;
+    height: auto;
+  }
+  
+  @media (max-width: 900px) {
+    .project-boundaries {
+      flex-direction: column;
+    }
+  
+    .project-boundaries img {
+      max-width: 100%;
+    }
+  }
+  
+  /* Адаптация под узкие экраны */
+  @media (max-width: 800px) {
+    .md-typeset .territory-notes {
+      grid-template-columns: 1fr;
+    }
+  
+    .md-typeset .territory-hierarchy {
+      padding: 1rem;
+    }
+  
+    .md-typeset .territory-node {
+      font-size: 0.76rem;
+    }
+  }

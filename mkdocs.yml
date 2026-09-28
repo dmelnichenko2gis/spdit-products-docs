@@ -1,0 +1,122 @@
+site_name: Продукты СПДиТ
+site_description: Документация по продуктам Службы продаж данных и технологий
+site_author: СПДиТ
+
+theme:
+  name: material
+  language: ru
+  logo: assets/2gis-logo.png
+  favicon: assets/2gis-logo.png
+
+  features:
+    # Навигация
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.instant
+    - navigation.tracking
+    - navigation.top
+
+    # Поиск
+    - search.highlight
+    - search.share
+    - search.suggest
+
+    # Контент
+    - content.tabs.link
+    - content.code.copy
+    - content.code.annotate
+    - content.tooltips
+
+  icon:
+    repo: fontawesome/brands/git-alt
+
+  palette:
+    - scheme: default
+      primary: green
+      accent: light green
+      toggle:
+        icon: material/weather-night
+        name: Переключить на тёмную тему
+
+    - scheme: slate
+      primary: green
+      accent: light green
+      toggle:
+        icon: material/weather-sunny
+        name: Переключить на светлую тему
+
+extra:
+  generator: false
+
+extra_javascript:
+  - javascripts/use-cases-aside.js
+  - javascripts/field-expand.js
+
+extra_css:
+  - stylesheets/extra.css
+  # FontAwesome для иконок в Mermaid и HTML
+  - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css
+
+plugins:
+  - search:
+      lang:
+        - ru
+        - en
+
+markdown_extensions:
+  # Базовые
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+  # PyMdown Extensions
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+  - pymdownx.tabbed:
+      alternate_style: true
+
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+nav:
+  - Главная: index.md
+
+  - Базы данных организаций:
+      - Модель данных: databases/data-model.md
+      - Обзор: databases/overview.md
+      - Формат поставки: databases/delivery-format.md
+
+  - Адресный план:
+      - Модель данных: address-plan/data-model.md
+      - Обзор: address-plan/overview.md
+      - Единицы территориального деления: address-plan/territorial-units.md
+      - Формат поставки: address-plan/delivery-format.md
+
+  - Вектор:
+      - Модель данных: vector/data-model.md
+      - Обзор: vector/overview.md
+      - Сценарии использования: vector/use-cases.md
+      - Формат поставки: vector/delivery-format.md
+      - Единицы территориального деления: vector/territorial-units.md
+
+  - Сравнение продуктов: comparison.md
+  - Глоссарий: glossary.md
